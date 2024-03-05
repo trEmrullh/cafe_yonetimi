@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:last_summer/controller/masa_controller.dart';
-import 'package:last_summer/model/urun_model.dart';
-import 'package:last_summer/shared/urun_listesi_widget.dart';
+import 'package:LAST_SUMMER_COFFE/controller/masa_controller.dart';
+import 'package:LAST_SUMMER_COFFE/model/urun_model.dart';
+import 'package:LAST_SUMMER_COFFE/shared/urun_listesi_widget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MasaDetayScreen extends ConsumerWidget {
   const MasaDetayScreen({
@@ -63,7 +64,7 @@ class MasaDetayScreen extends ConsumerWidget {
                       itemCount: masaController.masaUrunleriniAl(masaNo!).isEmpty
                           ? 1
                           : masaController.masaUrunleriniAl(masaNo!).length,
-                      padding: const EdgeInsets.only(left: 100, right: 300, top: 40),
+                      padding: const EdgeInsets.only(left: 100, right: 300, top: 40, bottom: 50),
                       itemBuilder: (context, index1) {
                         List<Urun> item = masaController.masaUrunleriniAl(masaNo!);
 
@@ -140,11 +141,9 @@ class MasaDetayScreen extends ConsumerWidget {
                                               child: CircleAvatar(
                                                 backgroundColor: index2 == 1 ? Colors.blue : Colors.red,
                                                 maxRadius: 15,
-                                                child: Center(
-                                                  child: Text(
-                                                    index2 == 1 ? '+' : '-',
-                                                    style: const TextStyle(fontSize: 25),
-                                                  ),
+                                                child: FaIcon(
+                                                  index2 == 1 ? FontAwesomeIcons.plus : FontAwesomeIcons.minus,
+                                                  size: 16,
                                                 ),
                                               ),
                                             );

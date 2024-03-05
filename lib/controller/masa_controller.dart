@@ -2,20 +2,18 @@ import 'dart:convert';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:last_summer/model/urun_model.dart';
+import 'package:LAST_SUMMER_COFFE/model/urun_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MasaController extends ChangeNotifier {
   Map<int, List<Urun>> masaUrunListeleri = {};
-  int? masaNumber;
 
   void urunEkle(int masaNo, Urun urun) {
     if (!masaUrunListeleri.containsKey(masaNo)) {
       masaUrunListeleri[masaNo] = [];
     }
-    masaUrunListeleri[masaNo]?.add(urun);
-    masaNumber = masaNo;
 
+    masaUrunListeleri[masaNo]?.add(urun);
     notifyListeners();
   }
 
@@ -90,10 +88,20 @@ class MasaController extends ChangeNotifier {
 
     if (urunJsonList != null) {
       notifyListeners();
+
       return masaUrunListeleri[masaNo] = urunJsonList.map((urunJson) => Urun.fromJson(jsonDecode(urunJson))).toList();
     } else {
       return [];
     }
+  }
+
+  Future<void> masaTasi(int eskiMasaNo, int yeniMasaNo) async {
+    for (Urun i in masaUrunListeleri[eskiMasaNo]!) {
+      urunEkle(yeniMasaNo, i);
+    }
+    await odemeyiAl(eskiMasaNo);
+    await icerikleriCihazaKaydet(yeniMasaNo);
+    notifyListeners();
   }
 }
 

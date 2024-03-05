@@ -1,8 +1,9 @@
+import 'package:LAST_SUMMER_COFFE/cosntants/sirket_bilgileri/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:last_summer/controller/masa_controller.dart';
-import 'package:last_summer/cosntants/urunler.dart';
-import 'package:last_summer/model/urun_model.dart';
+import 'package:LAST_SUMMER_COFFE/controller/masa_controller.dart';
+import 'package:LAST_SUMMER_COFFE/cosntants/urunler.dart';
+import 'package:LAST_SUMMER_COFFE/model/urun_model.dart';
 
 Widget urunListesiWidget({String? kullanilanEkran, int? masaNo}) {
   Urunler urunler = Urunler();
@@ -42,9 +43,9 @@ Widget urunListesiWidget({String? kullanilanEkran, int? masaNo}) {
                         }
                       : null,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
+                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                     decoration: BoxDecoration(
-                      color: kullanilanEkran == 'MasaDetay' ? Colors.grey : Colors.teal,
+                      color: kullanilanEkran == 'MasaDetay' ? Colors.black26 : MyColors.color1,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Row(
@@ -53,6 +54,7 @@ Widget urunListesiWidget({String? kullanilanEkran, int? masaNo}) {
                           urun.urunAdi.toString(),
                           style: const TextStyle(
                             fontSize: 18,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                         const Spacer(),
