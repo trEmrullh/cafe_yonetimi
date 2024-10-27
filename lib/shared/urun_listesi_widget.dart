@@ -50,11 +50,15 @@ Widget urunListesiWidget({String? kullanilanEkran, int? masaNo}) {
                     ),
                     child: Row(
                       children: [
-                        Text(
-                          urun.urunAdi.toString(),
-                          style: const TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                        Expanded(
+                          flex: 12,
+                          child: Text(
+                            urun.urunAdi.toString(),
+                            style: const TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         ),
                         const Spacer(),

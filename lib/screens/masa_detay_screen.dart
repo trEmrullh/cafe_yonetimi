@@ -47,11 +47,11 @@ class MasaDetayScreen extends ConsumerWidget {
       body: Row(
         children: [
           Flexible(
-            flex: 3,
+            flex: 4,
             child: urunListesiWidget(kullanilanEkran: 'MasaDetay', masaNo: masaNo),
           ),
           Expanded(
-            flex: 9,
+            flex: 10,
             child: Column(
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -61,9 +61,7 @@ class MasaDetayScreen extends ConsumerWidget {
                     padding: const EdgeInsets.only(left: 40),
                     child: ListView.separated(
                       separatorBuilder: (context, index) => const SizedBox(height: 10),
-                      itemCount: masaController.masaUrunleriniAl(masaNo!).isEmpty
-                          ? 1
-                          : masaController.masaUrunleriniAl(masaNo!).length,
+                      itemCount: masaController.masaUrunleriniAl(masaNo!).isEmpty ? 1 : masaController.masaUrunleriniAl(masaNo!).length,
                       padding: const EdgeInsets.only(left: 100, right: 300, top: 40, bottom: 50),
                       itemBuilder: (context, index1) {
                         List<Urun> item = masaController.masaUrunleriniAl(masaNo!);

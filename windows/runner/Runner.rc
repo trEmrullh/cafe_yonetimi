@@ -92,9 +92,9 @@ BEGIN
             VALUE "CompanyName", "com.example" "\0"
             VALUE "FileDescription", "LAST SUMMER COFFE" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "LAST DUMMER COFFE" "\0"
+            VALUE "InternalName", "LAST SUMMER COFFE" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "LAST SUMMER COFFE.exe" "\0"
+            VALUE "OriginalFilename", "LAST_SUMMER_COFFE.exe" "\0"
             VALUE "ProductName", "LAST SUMMER COFFE" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
