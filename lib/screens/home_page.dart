@@ -9,7 +9,6 @@ import 'package:LAST_SUMMER_COFFE/controller/masa_controller.dart';
 import 'package:LAST_SUMMER_COFFE/cosntants/sirket_bilgileri/my_colors.dart';
 import 'package:LAST_SUMMER_COFFE/screens/masa_detay_screen.dart';
 import 'package:LAST_SUMMER_COFFE/shared/urun_listesi_widget.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -66,16 +65,10 @@ class _HomePage extends ConsumerState<HomePage> {
                         ),
                       ),
               ),
-              if (loginController.isLogin == true) girisYapilanWidget(loginController, context),
-              if (loginController.isLogin == false || loginController.isLogin == null)
-                girisYapilmayanWidget(loginController),
+              if (loginController.isLogin == true) girisYapilanWidget(loginController, context) else girisYapilmayanWidget(loginController),
               const Spacer(),
               InkWell(
                 onTap: null,
-                // onTap: () async {
-                //   SharedPreferences _prefs = await SharedPreferences.getInstance();
-                //   await _prefs.clear();
-                // },
                 child: Text(
                   Version.versionNo,
                   style: TextStyle(
@@ -194,8 +187,7 @@ class _HomePage extends ConsumerState<HomePage> {
                                                             contentPadding: const EdgeInsets.all(50),
                                                             title: const Text(
                                                               'Masa Taşıma İşlemi',
-                                                              style:
-                                                                  TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                                                              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                                                             ),
                                                             content: const Text(
                                                               'Taşımak İstesiğiniz Masa Boş Değil. Yine de Taşınsın Mı ?',
@@ -245,8 +237,7 @@ class _HomePage extends ConsumerState<HomePage> {
                         },
                         child: Container(
                           decoration: BoxDecoration(
-                            color:
-                                masaController.masaUrunleriniAl(index1 + 1).isEmpty ? Colors.green : Colors.redAccent,
+                            color: masaController.masaUrunleriniAl(index1 + 1).isEmpty ? Colors.green : Colors.redAccent,
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Align(

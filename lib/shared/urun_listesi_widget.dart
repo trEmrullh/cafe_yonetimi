@@ -43,7 +43,7 @@ Widget urunListesiWidget({String? kullanilanEkran, int? masaNo}) {
                         }
                       : null,
                   child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 15),
                     decoration: BoxDecoration(
                       color: kullanilanEkran == 'MasaDetay' ? Colors.black26 : MyColors.color1,
                       borderRadius: BorderRadius.circular(10),

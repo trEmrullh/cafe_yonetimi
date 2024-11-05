@@ -1,3 +1,4 @@
+import 'package:LAST_SUMMER_COFFE/controller/gun_sonu_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:LAST_SUMMER_COFFE/controller/masa_controller.dart';
@@ -225,8 +226,11 @@ class MasaDetayScreen extends ConsumerWidget {
                                 ),
                                 actions: [
                                   TextButton(
-                                    onPressed: () {
+                                    onPressed: () async {
                                       masaController.odemeyiAl(masaNo!);
+
+                                      await ref.read(gunSonuControllerProvider).gunSonunaEkle(masaController.masaFiyatToplami(masaNo));
+
                                       Navigator.of(context).pop();
                                       Navigator.of(context).pop();
                                     },
