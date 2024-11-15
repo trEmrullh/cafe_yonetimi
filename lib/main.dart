@@ -1,4 +1,5 @@
 import 'package:LAST_SUMMER_COFFE/controller/login_controller.dart';
+import 'package:LAST_SUMMER_COFFE/cosntants/sirket_bilgileri/my_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:LAST_SUMMER_COFFE/cosntants/sirket_bilgileri/sirket_bilgileri.dart';
@@ -58,6 +59,22 @@ class _MyApp extends ConsumerState<MyApp> {
             fontFamily: 'Nunito',
             color: Colors.black,
             fontWeight: FontWeight.bold,
+          ),
+        ),
+        inputDecorationTheme: InputDecorationTheme(
+          isDense: true,
+          filled: true,
+          fillColor: MyColors.grey2,
+          labelStyle: const TextStyle(fontSize: 15),
+          border: OutlineInputBorder(
+            borderSide: const BorderSide(width: 0.2),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderSide: const BorderSide(
+              color: MyColors.darkPurple,
+            ),
+            borderRadius: BorderRadius.circular(10),
           ),
         ),
         colorScheme: ColorScheme.fromSeed(

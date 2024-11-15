@@ -33,53 +33,17 @@ class _HomePage extends ConsumerState<HomePage> {
 
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 100,
+        toolbarHeight: 80,
         centerTitle: true,
         title: const Text(
-          'LAST SUMMER COFFE',
+          'LAST SUMMER COFFEE',
           style: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
           ),
         ),
       ),
-      endDrawer: Drawer(
-        width: MediaQuery.of(context).size.width * 0.25,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Column(
-            children: [
-              CircleAvatar(
-                backgroundColor: MyColors.color1,
-                maxRadius: 50,
-                child: loginController.isLogin == false || loginController.isLogin == null
-                    ? const FaIcon(
-                        FontAwesomeIcons.user,
-                        size: 40,
-                      )
-                    : Text(
-                        '${loginController.yetkiliKodAdi?.toUpperCase()}',
-                        style: TextStyle(
-                          fontSize: 35,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-              ),
-              if (loginController.isLogin == true) girisYapilanWidget(loginController, context) else girisYapilmayanWidget(loginController),
-              const Spacer(),
-              InkWell(
-                onTap: null,
-                child: Text(
-                  Version.versionNo,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
-      ),
+      drawer: myDrawer(),
       body: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -260,6 +224,52 @@ class _HomePage extends ConsumerState<HomePage> {
           ),
         ],
       ),
+    );
+  }
+
+  Widget myDrawer() {
+    final loginController = ref.watch(loginControllerProvider);
+
+    return Consumer(
+      builder: (context, ref, child) {
+        return Drawer(
+          width: MediaQuery.of(context).size.width * 0.25,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Column(
+              children: [
+                CircleAvatar(
+                  backgroundColor: MyColors.color1,
+                  maxRadius: 50,
+                  child: loginController.isLogin == false || loginController.isLogin == null
+                      ? const FaIcon(
+                          FontAwesomeIcons.user,
+                          size: 40,
+                        )
+                      : Text(
+                          '${loginController.yetkiliKodAdi?.toUpperCase()}',
+                          style: TextStyle(
+                            fontSize: 35,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                ),
+                if (loginController.isLogin == true) girisYapilanWidget(loginController, context) else girisYapilmayanWidget(loginController),
+                const Spacer(),
+                InkWell(
+                  onTap: null,
+                  child: Text(
+                    Version.versionNo,
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }
