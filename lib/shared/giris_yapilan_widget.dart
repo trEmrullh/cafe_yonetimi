@@ -29,42 +29,42 @@ Widget girisYapilanWidget(LoginController loginController, BuildContext context)
             ),
             const SizedBox(height: 50),
             gunSonunuGor(ref, context),
-            const SizedBox(height: 10),
-            InkWell(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MyPageRoute(
-                    page: UrunYonetimScreen(),
-                  ),
-                );
-              },
-              child: Container(
-                padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-                decoration: BoxDecoration(
-                  color: MyColors.color1,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: Row(
-                  children: [
-                    Text(
-                      'Ürünleri Yönet',
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Spacer(),
-                    const Padding(
-                      padding: EdgeInsets.only(left: 20),
-                      child: Icon(
-                        Icons.keyboard_arrow_right,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
+            // const SizedBox(height: 10),
+            // InkWell(
+            //   onTap: () {
+            //     Navigator.push(
+            //       context,
+            //       MyPageRoute(
+            //         page: UrunYonetimScreen(),
+            //       ),
+            //     );
+            //   },
+            //   child: Container(
+            //     padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            //     decoration: BoxDecoration(
+            //       color: MyColors.color1,
+            //       borderRadius: BorderRadius.circular(10),
+            //     ),
+            //     child: Row(
+            //       children: [
+            //         Text(
+            //           'Ürünleri Yönet',
+            //           style: const TextStyle(
+            //             fontSize: 18,
+            //             fontWeight: FontWeight.bold,
+            //           ),
+            //         ),
+            //         const Spacer(),
+            //         const Padding(
+            //           padding: EdgeInsets.only(left: 20),
+            //           child: Icon(
+            //             Icons.keyboard_arrow_right,
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
             const SizedBox(height: 200),
             InkWell(
               onTap: () async {
