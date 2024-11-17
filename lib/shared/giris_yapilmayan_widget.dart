@@ -25,7 +25,7 @@ Widget girisYapilmayanWidget(LoginController loginController) {
               fontWeight: FontWeight.bold,
             ),
           ),
-          const SizedBox(height: 50),
+          const SizedBox(height: 35),
           const Padding(
             padding: EdgeInsets.only(left: 55),
             child: Align(
@@ -39,27 +39,17 @@ Widget girisYapilmayanWidget(LoginController loginController) {
             ),
           ),
           const SizedBox(height: 3),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 40),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black,
-              ),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 35),
-            child: TextFormField(
-              controller: loginController.personelNameController,
-              validator: (String? value) {
-                if (value!.length <= 3) {
-                  return 'Geçerli bir kullanıcı adı giriniz!';
-                }
-                return null;
-              },
-              decoration: const InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Kullanıcı adınızı giriniz..',
-              ),
+          TextFormField(
+            controller: loginController.personelNameController,
+            validator: (String? value) {
+              if (value!.length <= 3) {
+                return 'Geçerli bir kullanıcı adı giriniz!';
+              }
+              return null;
+            },
+            decoration: const InputDecoration(
+              border: InputBorder.none,
+              hintText: 'Kullanıcı adınızı giriniz..',
             ),
           ),
           const SizedBox(height: 20),
@@ -76,44 +66,34 @@ Widget girisYapilmayanWidget(LoginController loginController) {
             ),
           ),
           const SizedBox(height: 3),
-          Container(
-            margin: const EdgeInsets.symmetric(horizontal: 40),
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: Colors.black,
-              ),
-              borderRadius: BorderRadius.circular(20),
-            ),
-            padding: const EdgeInsets.symmetric(horizontal: 35),
-            child: TextFormField(
-              obscureText: true,
-              controller: loginController.passwordController,
-              validator: (String? value) {
-                if (value!.length < 3) {
-                  return 'Geçerli bir şifre giriniz!';
+          TextFormField(
+            obscureText: true,
+            controller: loginController.passwordController,
+            validator: (String? value) {
+              if (value!.length < 3) {
+                return 'Geçerli bir şifre giriniz!';
+              }
+              return null;
+            },
+            onFieldSubmitted: (value) async {
+              if (_formKey.currentState!.validate()) {
+                if ((loginController.personelNameController.text.toLowerCase() == 'emre' ||
+                        loginController.personelNameController.text.toLowerCase() == 'mustafa' ||
+                        loginController.personelNameController.text.toLowerCase() == 'hakan' ||
+                        loginController.personelNameController.text.toLowerCase() == 'emrullah') &&
+                    (loginController.passwordController.text.toLowerCase() == 'mstf.0101' ||
+                        loginController.passwordController.text.toLowerCase() == 'emr.0101' ||
+                        loginController.passwordController.text.toLowerCase() == 'hkn.0101' ||
+                        loginController.passwordController.text.toLowerCase() == 'emir.0101')) {
+                  await loginController.loginFun();
+                } else {
+                  loginController.errorLoginFun();
                 }
-                return null;
-              },
-              onFieldSubmitted: (value) async {
-                if (_formKey.currentState!.validate()) {
-                  if ((loginController.personelNameController.text.toLowerCase() == 'emre' ||
-                          loginController.personelNameController.text.toLowerCase() == 'mustafa' ||
-                          loginController.personelNameController.text.toLowerCase() == 'hakan' ||
-                          loginController.personelNameController.text.toLowerCase() == 'emrullah') &&
-                      (loginController.passwordController.text.toLowerCase() == 'mstf.0101' ||
-                          loginController.passwordController.text.toLowerCase() == 'emr.0101' ||
-                          loginController.passwordController.text.toLowerCase() == 'hkn.0101' ||
-                          loginController.passwordController.text.toLowerCase() == 'emir.0101')) {
-                    await loginController.loginFun();
-                  } else {
-                    loginController.errorLoginFun();
-                  }
-                }
-              },
-              decoration: const InputDecoration(
-                border: InputBorder.none,
-                hintText: 'Şifrenizi giriniz..',
-              ),
+              }
+            },
+            decoration: const InputDecoration(
+              border: InputBorder.none,
+              hintText: 'Şifrenizi giriniz..',
             ),
           ),
           const SizedBox(height: 20),

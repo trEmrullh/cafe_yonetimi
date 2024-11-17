@@ -76,6 +76,18 @@ class _MyApp extends ConsumerState<MyApp> {
             ),
             borderRadius: BorderRadius.circular(10),
           ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: MyColors.darkPurple,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: MyColors.darkPurple,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
         ),
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.teal,
